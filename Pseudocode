@@ -1,0 +1,350 @@
+## Main Program Pseudocode
+
+START
+
+DECLARE integer choice
+
+DECLARE character tryAgain
+
+DO
+
+    PRINT "IT102 - PROGRAMMING 1 PORTFOLIO"
+
+    PRINT "1. Pattern Generator"
+    PRINT "2. Pascal's Triangle"
+    PRINT "3. Grade Calculator"
+    PRINT "4. Palindrome Checker"
+    PRINT "5. Exit Program"
+
+    PRINT "Enter your choice (1-5): "
+
+    IF reading choice is not an integer THEN
+
+        PRINT "Invalid input. Please enter a number."
+
+        SET choice = 0
+
+    ENDIF
+
+    IF choice == 1 THEN
+
+        EXECUTE Pattern Generator
+
+    ELSE IF choice == 2 THEN
+
+        EXECUTE Pascal's Triangle
+
+    ELSE IF choice == 3 THEN
+
+        EXECUTE Grade Calculator
+
+    ELSE IF choice == 4 THEN
+
+        EXECUTE Palindrome Checker
+
+    ELSE IF choice == 5 THEN
+
+        PRINT "Exiting program."
+
+        STOP PROGRAM
+
+    ELSE
+
+        PRINT "Invalid choice. Please select from 1 to 5."
+
+    ENDIF
+
+    PRINT "Do you want to try again? (Y/N): "
+
+    READ tryAgain
+
+WHILE tryAgain == 'Y' OR tryAgain == 'y'
+
+PRINT "Program ended. Goodbye!"
+
+END
+
+
+## 1. Pattern Generator Pseudocode
+
+BEGIN PatternGenerator
+
+DECLARE integer size, subChoice
+
+PRINT "PATTERN GENERATOR"
+
+PRINT "Enter the size of the shape: "
+
+IF reading size is not an integer OR size <= 0 THEN
+
+    PRINT "Invalid size. Please enter a positive number."
+
+ELSE
+
+    PRINT "Select shape:"
+
+    PRINT "1. Right Triangle"
+    PRINT "2. Square"
+    PRINT "3. Isosceles Triangle"
+    PRINT "4. Inverted Right Triangle"
+    PRINT "5. Christmas Tree"
+
+    PRINT "Enter your choice: "
+
+    IF reading subChoice is not an integer THEN
+
+        SET subChoice = 0
+
+    ENDIF
+
+    IF subChoice == 1 THEN
+
+        FOR i = 1 TO size
+
+            FOR j = 1 TO i
+
+                PRINT "*"
+
+            ENDFOR
+
+            PRINT NEWLINE
+
+        ENDFOR
+
+    ELSE IF subChoice == 2 THEN
+
+        FOR i = 0 TO size - 1
+
+            FOR j = 0 TO size - 1
+
+                PRINT "*"
+
+            ENDFOR
+
+            PRINT NEWLINE
+
+        ENDFOR
+
+    ELSE IF subChoice == 3 THEN
+
+        FOR i = 1 TO size
+
+            FOR j = 1 TO size - i
+
+                PRINT " "
+
+            ENDFOR
+
+            FOR j = 1 TO (2 * i - 1)
+
+                PRINT "*"
+
+            ENDFOR
+
+            PRINT NEWLINE
+
+        ENDFOR
+
+    ELSE IF subChoice == 4 THEN
+
+        FOR i = size DOWN TO 1
+
+            FOR j = 1 TO i
+
+                PRINT "*"
+
+            ENDFOR
+
+            PRINT NEWLINE
+
+        ENDFOR
+
+    ELSE IF subChoice == 5 THEN
+
+        [Christmas Tree pattern instructions]
+
+    ELSE
+
+        PRINT "Invalid shape selection."
+
+    ENDIF
+
+ENDIF
+
+END PatternGenerator
+
+
+## 2. Pascal's Triangle Pseudocode
+
+BEGIN PascalTriangle
+
+DECLARE integer rows
+
+PRINT "PASCAL'S TRIANGLE"
+
+PRINT "Enter the number of rows (1-20): "
+
+IF reading rows is not an integer OR rows < 1 OR rows > 20 THEN
+
+    PRINT "Invalid number of rows. Enter a number from 1 to 20."
+
+ELSE
+
+    PRINT "Pascal's Triangle:"
+
+    FOR i = 0 TO rows - 1
+
+        FOR space = 0 TO rows - i - 1
+
+            PRINT " "
+
+        ENDFOR
+
+        SET val = 1
+
+        FOR j = 0 TO i
+
+            PRINT val (width 4)
+
+            SET val = val * (i - j) / (j + 1)
+
+        ENDFOR
+
+        PRINT NEWLINE
+
+    ENDFOR
+
+ENDIF
+
+END PascalTriangle
+
+
+## 3. Grade Calculator Pseudocode
+
+BEGIN GradeCalculator
+
+DECLARE float prelim, midterm, preFinal, finalGrade, average
+
+PRINT "GRADE CALCULATOR"
+
+PRINT "Enter Prelim grade: "
+
+IF reading prelim is not a number THEN
+
+    PRINT "Invalid grade input."
+
+ELSE
+
+    PRINT "Enter Midterm grade: "
+
+    IF reading midterm is not a number THEN
+
+        PRINT "Invalid grade input."
+
+    ELSE
+
+        PRINT "Enter Pre-Final grade: "
+
+        IF reading preFinal is not a number THEN
+
+            PRINT "Invalid grade input."
+
+        ELSE
+
+            PRINT "Enter Final grade: "
+
+            IF reading finalGrade is not a number THEN
+
+                PRINT "Invalid grade input."
+
+            ELSE
+
+                SET average = (prelim + midterm + preFinal + finalGrade) / 4.0
+
+                PRINT "Final Grade Average: ", average
+
+                IF average >= 75 THEN
+
+                    PRINT "Status: PASS"
+
+                ELSE
+
+                    PRINT "Status: FAIL"
+
+                ENDIF
+
+            ENDIF
+
+        ENDIF
+
+    ENDIF
+
+ENDIF
+
+END GradeCalculator
+
+
+## 4. Palindrome Checker Pseudocode
+
+BEGIN PalindromeChecker
+
+DECLARE character word[100]
+
+DECLARE integer length = 0, isPalindrome = 1, isValid = 1
+
+PRINT "PALINDROME CHECKER"
+
+PRINT "Enter a word: "
+
+IF reading word fails THEN
+
+    PRINT "Invalid input."
+
+ELSE
+
+    WHILE word[length] != '\0'
+
+        IF NOT ((word[length] >= 'A' AND word[length] <= 'Z') OR (word[length] >= 'a' AND word[length] <= 'z')) THEN
+
+            SET isValid = 0
+
+        ENDIF
+
+        SET length = length + 1
+
+    ENDWHILE
+
+    IF isValid == 0 OR length == 0 THEN
+
+        PRINT "Invalid input. Please enter letters only."
+
+    ELSE
+
+        FOR i = 0 TO (length / 2) - 1
+
+            IF word[i] != word[length - i - 1] THEN
+
+                SET isPalindrome = 0
+
+            ENDIF
+
+        ENDFOR
+
+        IF isPalindrome == 1 THEN
+
+            PRINT "The word is a palindrome!"
+
+        ELSE
+
+            PRINT "The word is not a palindrome."
+
+        ENDIF
+
+    ENDIF
+
+ENDIF
+
+END PalindromeChecker
+ 
+
+
