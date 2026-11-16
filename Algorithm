@@ -1,4 +1,4 @@
-## Algorithm
+## Main Menu
 
 1. Start the program and declare the variables `choice` (integer) and `tryAgain` (character).
 
@@ -29,4 +29,86 @@
 11. Prompt the user with "Do you want to try again? (Y/N): " and read `tryAgain`.
 
 12. If `tryAgain` is 'Y' or 'y', repeat from Step 2. Otherwise, display "Program ended. Goodbye!" and end the program.
+
+
+## Pattern Generator Algorithm
+
+1. Display the heading **"PATTERN GENERATOR"** and prompt the user to enter the size of the shape.
+
+2. Read `size`. If the input is not a valid integer or `size` is less than or equal to 0, display **"Invalid size. Please enter a positive number."** and exit the module.
+
+3. Otherwise, display the shape selection menu:
+   - 1. Right Triangle
+   - 2. Square
+   - 3. Isosceles Triangle
+   - 4. Inverted Right Triangle
+   - 5. Christmas Tree
+
+4. Read `subChoice`. If the input is not a valid integer, set `subChoice` to 0.
+
+5. If `subChoice` is 1 (Right Triangle): loop `i` from 1 to `size`, printing `i` asterisks per row followed by a newline.
+
+6. Else if `subChoice` is 2 (Square): loop `i` from 0 to `size - 1`, printing `size` asterisks per row followed by a newline.
+
+7. Else if `subChoice` is 3 (Isosceles Triangle): loop `i` from 1 to `size`, printing `(size - i)` spaces followed by `(2 * i - 1)` asterisks and a newline.
+
+8. Else if `subChoice` is 4 (Inverted Right Triangle): loop `i` from `size` down to 1, printing `i` asterisks per row followed by a newline.
+
+9. Else if `subChoice` is 5 (Christmas Tree): loop `i` from 1 to 3 to print three stacked triangle sections, starting at row 1 up to `size`. Then print two trunk rows consisting of `size` spaces followed by `"||"`.
+
+10. Else, display **"Invalid shape selection."**
+
+
+## Pascal's Triangle Algorithm
+
+1. Display the heading **"PASCAL'S TRIANGLE"** and prompt the user to enter the number of rows from 1 to 20.
+
+2. Read `rows`. If the input is not a valid integer or is outside the range 1 to 20, display **"Invalid number of rows. Enter a number from 1 to 20."** and exit the module.
+
+3. Otherwise, loop `i` from 0 to `rows - 1`.
+
+4. Inside the outer loop, print `(rows - i)` pairs of spaces for alignment.
+
+5. Set `val` to 1 and loop `j` from 0 to `i`.
+
+6. Print `val` formatted to 4 spaces, then update `val = val * (i - j) / (j + 1)` and repeat until `j` exceeds `i`.
+
+7. Print a newline and move to the next row until all rows are printed.
+
+
+## Grade Calculator Algorithm
+
+1. Display the heading **"GRADE CALCULATOR"**.
+
+2. Prompt for and read the Prelim grade. If it is not a valid number, display **"Invalid grade input."** and exit the module.
+
+3. Prompt for and read the Midterm grade. If it is not a valid number, display **"Invalid grade input."** and exit the module.
+
+4. Prompt for and read the Pre-Final grade. If it is not a valid number, display **"Invalid grade input."** and exit the module.
+
+5. Prompt for and read the Final grade. If it is not a valid number, display **"Invalid grade input."** and exit the module.
+
+6. Calculate the average by adding the Prelim, Midterm, Pre-Final, and Final grades, then dividing the total by 4.0.
+
+7. Display the Final Grade Average rounded to two decimal places.
+
+8. If the average is greater than or equal to 75, display **"Status: PASS"**. Otherwise, display **"Status: FAIL"**.
+
+## Palindrome Checker Algorithm
+
+1. Display the heading **"PALINDROME CHECKER"** and prompt the user to enter a word.
+
+2. Read the string into `word` (up to 99 characters). If reading fails, display **"Invalid input."** and exit the module.
+
+3. Initialize `length` to 0, `isPalindrome` to 1, and `isValid` to 1.
+
+4. Loop through each character in `word` until the null terminator (`'\0'`) is reached. If a character is not between `'A'-'Z'` or `'a'-'z'`, set `isValid` to 0. Increment `length` for each character.
+
+5. If `isValid` is 0 or `length` is 0, display **"Invalid input. Please enter letters only."** and exit the module.
+
+6. Otherwise, loop `i` from 0 up to `(length / 2) - 1` and compare `word[i]` with `word[length - i - 1]`.
+
+7. If any pair of characters does not match, set `isPalindrome` to 0.
+
+8. After the loop finishes, if `isPalindrome` is 1, display **"The word is a palindrome!"** Otherwise, display **"The word is not a palindrome."**
 
