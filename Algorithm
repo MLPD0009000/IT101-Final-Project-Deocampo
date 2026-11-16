@@ -1,0 +1,32 @@
+## Algorithm
+
+1. Start the program and declare the variables `choice` (integer) and `tryAgain` (character).
+
+2. Display the program title and the main menu options:
+
+   - 1. Pattern Generator
+   - 2. Pascal's Triangle
+   - 3. Grade Calculator
+   - 4. Palindrome Checker
+   - 5. Exit Program
+
+3. Prompt the user to enter a choice from 1 to 5 and read the input.
+
+4. If the input is not a valid integer, display "Invalid input. Please enter a number." and set `choice` to 0.
+
+5. If `choice` is 1, execute the Pattern Generator module.
+
+6. Else if `choice` is 2, execute the Pascal's Triangle module.
+
+7. Else if `choice` is 3, execute the Grade Calculator module.
+
+8. Else if `choice` is 4, execute the Palindrome Checker module.
+
+9. Else if `choice` is 5, display "Exiting program." and terminate the program.
+
+10. Else, display "Invalid choice. Please select from 1 to 5."
+
+11. Prompt the user with "Do you want to try again? (Y/N): " and read `tryAgain`.
+
+12. If `tryAgain` is 'Y' or 'y', repeat from Step 2. Otherwise, display "Program ended. Goodbye!" and end the program.
+
